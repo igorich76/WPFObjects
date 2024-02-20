@@ -1,0 +1,12 @@
+//пробовал, учился
+##
+uses WPFObjects;
+loop 500 do
+  new RectangleWPF(Random(800),Random(600),Random(200),
+    Random(200),RandomColor);
+var Destroyer := new CircleWPF(Window.Center,50,colors.Black);
+loop 300 do
+  begin
+    Destroyer.Right += 1;
+    foreach var o in Destroyer.IntersectionList do o.Destroy;
+  end;
