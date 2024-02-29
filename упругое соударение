@@ -1,0 +1,30 @@
+##
+uses graphwpf,wpfobjects;
+//
+Window.Title := 'Упругое соударение шариков';
+Window.Clear(Colors.LightGreen);
+//
+Brush.Color := Colors.Black;
+Rectangle(5,300,Window.Width-10,30);
+//
+var (x1,y1,r1) := (55,200,50);
+var ball1 := new CircleWPF(x1,y1,r1,colors.Blue);
+//
+var (x2,y2,r2) := (750,200,50);
+var ball2 := new CircleWPF(x2,y2,r2,colors.Red);
+//
+repeat
+  x1 += 1; 
+  x2 -= 1;
+  ball1.MoveTo(x1,y1);
+  ball2.MoveTo(x2,y2);
+  Sleep(3);
+until x1 > Window.Width-448;
+//
+repeat
+  x1 -= 1; 
+  x2 += 1;
+  ball1.MoveTo(x1,y1);
+  ball2.MoveTo(x2,y2);
+  Sleep(3);
+until (x2 > 750);
