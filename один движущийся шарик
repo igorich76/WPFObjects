@@ -1,0 +1,14 @@
+##
+uses graphwpf,wpfobjects;
+
+Window.Title := 'Движущийся шарик';
+Window.Clear(Colors.Lightblue);
+
+var (x,y,r) := (55,100,50);
+var ball := new Circlewpf(x,y,r,colors.red);
+repeat
+  x += 1;
+  ball.MoveTo(x,y);
+  Sleep(3);
+until x > Window.Width-100;
+//ball.Destroy;
