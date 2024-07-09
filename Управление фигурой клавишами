@@ -1,0 +1,25 @@
+##
+uses wpfobjects;
+//
+Window.Title := 'Тренировка';
+Window.IsFixedSize := true;
+Window.Width := 800;
+Window.Height := 600;
+Window.Clear(Colors.Lightblue);
+Window.CenterOnScreen;
+//
+var X_икс := Window.Width/2-100;
+var Rect := new RectangleWPF(Window.Width/2-100, Window.Height/2-50, 200, 50, Colors.Red);
+OnKeyDown := k →
+  if k = Key.Left then
+    begin
+      Rect.MoveTo(X_икс,Window.Height/2-50);
+      X_икс -= 5;
+      if X_икс < 0 then X_икс := 0;
+    end
+    else if k = Key.Right then
+      begin
+        Rect.MoveTo(X_икс,Window.Height/2-50);
+        X_икс += 5;
+        if X_икс > 600 then X_икс := 600;
+      end;
